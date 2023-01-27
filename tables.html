@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> 
+    <style>
+        .tContainer{
+            border: 1px solid gray;
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        .tableRow:nth-child(even){
+            background-color: lightblue;
+        }
+
+        span.number{
+            color: red;
+        }
+    </style>
+</head>
+<body class="container">
+
+    <!-- Print the Multiplication Tables of 1 to 3 and 10 tables for each
+    
+    1 => 1x1 = 1
+        1x2 = 2
+
+    2 => 2x1 = 2
+        2x2=4
+        .
+        .
+        .
+        2x10 = 20
+
+    3 => 3x1 = 3
+    .
+    .
+    .
+    .   3x10 = 30
+
+    -->
+
+    <input type="text" placeholder="Enter how many multiplication tables" id="number"> 
+    <input type="text" placeholder="Enter how iterations" id="times">
+
+    <button class="btn btn-primary" id="btnTables">Generate Tables</button>
+
+    <div class="row tablesContainer">
+        
+    </div>
+
+  
+    
+</body>
+<script>
+    function generateTables(number, times){
+        let thisTable = '';
+        for(let i=1; i<=number; i++){
+            console.log(i, "=> tables");
+            thisTable += `<div class="col-6 col-md-4 col-lg-3"><div class="tContainer">`;
+            for(let j=1; j<=times; j++){
+                console.log(`-- ${ i } x ${ j } = ${ i*j }   `);
+                thisTable += `<div><span class="number">${ i }</span> x ${ j } = ${ i*j }</div>`;
+            }
+            thisTable += '</div></div>';
+            console.log(thisTable);
+        }
+        return thisTable;
+    }
+
+$(document).ready(function(){
+
+    // $('.tablesContainer').html(generateTables(40,5));
+    $('#btnTables').on('click', function(){
+        $('.tablesContainer').html(generateTables($("#number").val(), $("#times").val()));
+    })
+    
+})
+
+</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+
+        span.element{
+            margin: 3px 6px; 
+        }
+
+    </style>
+</head>
+<body class="container">
+
+    <div class="divcontainer">
+
+    </div>
+
+    
+</body>
+<script>
+
+    /*
+            "0.0  0.1  0.2  0.3"
+            1.0  1.1  1.2  1.3  1.4
+            2.0  2.1  2.2  2.3  2.4  2.5 
+    */
+
+   
+let arr2 = [
+
+
+        [ '0.0', '0.1', '0.2', '0.3' ],
+
+        [ '1.0', '1.1', '1.2', '1.3', '1.4' ],
+
+        [ '2.0', '2.1', '2.2', '2.3', '2.4', '2.5'  ]
+
+];
+
+
+// 1. concating the values of all the elements of each array
+// 2. Build a Bootstrap row with the concat string (<div class="row"> 0.0  0.1  0.2  0.3  </div>)
+// 3. Append the row to the container
+
+$(document).ready(function(){
+
+    for(let i=0; i<arr2.length; i++){
+        // Element at position 0 is <array>
+        console.log('Element at position', i, 'is', arr2[i] );
+        let row = '';
+        for(let j=0; j<arr2[i].length; j++){
+            //Element at position 0, 1 is <element>
+            console.log('Element at position', i, ',', j, 'is', arr2[i][j]);
+            // row = row.concat(arr2[i][j]);
+            row = row.concat(`<span class="element">${ arr2[i][j] }</span>`);
+        }
+        //By the time the j loop completes, we will have a concatenated string of its values
+
+       
+        let rowDiv = `<div class="row">${ row }</div>`;
+        console.log('row div', rowDiv);
+        $('.divcontainer').append(rowDiv);
+
+    }
+    
+})
+
+
+
+
+
+</script>
+</html>
