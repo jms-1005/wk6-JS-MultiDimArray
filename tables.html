@@ -63,10 +63,13 @@
         let thisTable = '';
         for(let i=1; i<=number; i++){
             console.log(i, "=> tables");
-            thisTable += `<div class="col-6 col-md-4 col-lg-3"><div class="tContainer">`;
+            // thisTable += `<div class="col-6 col-md-4 col-lg-3"><div class="tContainer">`;
+                // thisTable = thisTable + `<div class="col-6 col-md-4 col-lg-3"><div class="tContainer">`; 
+            thisTable = thisTable.concat(`<div class="col-6 col-md-4 col-lg-3"><div class="tContainer">`) 
             for(let j=1; j<=times; j++){
                 console.log(`-- ${ i } x ${ j } = ${ i*j }   `);
-                thisTable += `<div><span class="number">${ i }</span> x ${ j } = ${ i*j }</div>`;
+                // thisTable += `<div><span class="number">${ i }</span> x ${ j } = ${ i*j }</div>`;
+                thisTable = thisTable.concat(`<div><span class="number">${ i }</span> x ${ j } = ${ i*j }</div>`)
             }
             thisTable += '</div></div>';
             console.log(thisTable);
